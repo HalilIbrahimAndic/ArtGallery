@@ -113,6 +113,13 @@
                             <constraint firstAttribute="bottom" secondItem="i6I-Uf-gdG" secondAttribute="bottom" id="yjr-Yf-9GU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageViewArt" destination="RnS-QT-Hf1" id="GNq-Ag-aMa"/>
+                        <outlet property="labelArtist" destination="wa0-qb-RGP" id="VZ8-KD-gGP"/>
+                        <outlet property="labelDimension" destination="yj4-Xm-AI1" id="0iv-uK-sZV"/>
+                        <outlet property="labelHistory" destination="40d-v3-ofH" id="bzG-Kh-Pti"/>
+                        <outlet property="labelTitle" destination="Rii-RC-7Mu" id="Qoq-i7-MZO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="har-Wf-Uhs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

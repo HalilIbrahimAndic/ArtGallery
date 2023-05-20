@@ -58,6 +58,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Art Gallery" id="twv-YY-JjD"/>
+                    <connections>
+                        <outlet property="collectionView" destination="aix-B0-VAV" id="S2i-if-Yd0"/>
+                        <outlet property="searchBar" destination="nRN-bc-47e" id="E4N-Sx-E9G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
