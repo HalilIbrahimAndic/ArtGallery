@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200F9B602A19313F009C073D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200F9B5F2A19313E009C073D /* NetworkService.swift */; };
+		200F9B652A197175009C073D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200F9B642A197175009C073D /* Router.swift */; };
+		200F9B6B2A1973DF009C073D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200F9B6A2A1973DF009C073D /* Constants.swift */; };
 		2028E9A62A16393300738940 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028E9A52A16393300738940 /* AppDelegate.swift */; };
 		2028E9A82A16393300738940 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028E9A72A16393300738940 /* SceneDelegate.swift */; };
 		2028E9AA2A16393300738940 /* ArtworksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028E9A92A16393300738940 /* ArtworksViewController.swift */; };
@@ -16,9 +19,13 @@
 		20C277872A1642EC00BD24E5 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20C277862A1642EC00BD24E5 /* Detail.storyboard */; };
 		20C2778C2A1643EE00BD24E5 /* ArtDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C2778B2A1643EE00BD24E5 /* ArtDetailViewController.swift */; };
 		20C2778F2A16444400BD24E5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C2778E2A16444400BD24E5 /* BaseViewController.swift */; };
+		CDCE7D42CA7B1EA5E1BF2ADD /* Pods_ArtGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21413612F3200D4C7CA6017A /* Pods_ArtGallery.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		200F9B5F2A19313E009C073D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		200F9B642A197175009C073D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		200F9B6A2A1973DF009C073D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2028E9A22A16393300738940 /* ArtGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2028E9A52A16393300738940 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2028E9A72A16393300738940 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +37,9 @@
 		20C277862A1642EC00BD24E5 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		20C2778B2A1643EE00BD24E5 /* ArtDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetailViewController.swift; sourceTree = "<group>"; };
 		20C2778E2A16444400BD24E5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		21413612F3200D4C7CA6017A /* Pods_ArtGallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtGallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		389D51A3FFC6B8F13FA639D5 /* Pods-ArtGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtGallery.debug.xcconfig"; path = "Target Support Files/Pods-ArtGallery/Pods-ArtGallery.debug.xcconfig"; sourceTree = "<group>"; };
+		D3370938ED93327EEC4D443C /* Pods-ArtGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtGallery.release.xcconfig"; path = "Target Support Files/Pods-ArtGallery/Pods-ArtGallery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +47,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDCE7D42CA7B1EA5E1BF2ADD /* Pods_ArtGallery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		124B6B51E9FA755FD215B453 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				389D51A3FFC6B8F13FA639D5 /* Pods-ArtGallery.debug.xcconfig */,
+				D3370938ED93327EEC4D443C /* Pods-ArtGallery.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		200F9B622A193192009C073D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				200F9B5F2A19313E009C073D /* NetworkService.swift */,
+				200F9B642A197175009C073D /* Router.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		2028E9992A16393300738940 = {
 			isa = PBXGroup;
 			children = (
 				2028E9A42A16393300738940 /* ArtGallery */,
 				2028E9A32A16393300738940 /* Products */,
+				124B6B51E9FA755FD215B453 /* Pods */,
+				4C79DB45A90F295B1B3EE082 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +100,8 @@
 				2028E9AE2A16393600738940 /* Assets.xcassets */,
 				2028E9B02A16393600738940 /* LaunchScreen.storyboard */,
 				2028E9B32A16393600738940 /* Info.plist */,
+				200F9B622A193192009C073D /* Services */,
+				200F9B6A2A1973DF009C073D /* Constants.swift */,
 			);
 			path = ArtGallery;
 			sourceTree = "<group>";
@@ -92,6 +125,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		4C79DB45A90F295B1B3EE082 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21413612F3200D4C7CA6017A /* Pods_ArtGallery.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,9 +140,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2028E9B62A16393600738940 /* Build configuration list for PBXNativeTarget "ArtGallery" */;
 			buildPhases = (
+				800B4B1CEE65787AB9BA3C61 /* [CP] Check Pods Manifest.lock */,
 				2028E99E2A16393300738940 /* Sources */,
 				2028E99F2A16393300738940 /* Frameworks */,
 				2028E9A02A16393300738940 /* Resources */,
+				98A6F24A9049319183DBD80F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,6 +201,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		800B4B1CEE65787AB9BA3C61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArtGallery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98A6F24A9049319183DBD80F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ArtGallery/Pods-ArtGallery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ArtGallery/Pods-ArtGallery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ArtGallery/Pods-ArtGallery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2028E99E2A16393300738940 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -166,8 +251,11 @@
 				20C2778F2A16444400BD24E5 /* BaseViewController.swift in Sources */,
 				2028E9AA2A16393300738940 /* ArtworksViewController.swift in Sources */,
 				20C2778C2A1643EE00BD24E5 /* ArtDetailViewController.swift in Sources */,
+				200F9B652A197175009C073D /* Router.swift in Sources */,
 				2028E9A62A16393300738940 /* AppDelegate.swift in Sources */,
+				200F9B602A19313F009C073D /* NetworkService.swift in Sources */,
 				2028E9A82A16393300738940 /* SceneDelegate.swift in Sources */,
+				200F9B6B2A1973DF009C073D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +399,7 @@
 		};
 		2028E9B72A16393600738940 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 389D51A3FFC6B8F13FA639D5 /* Pods-ArtGallery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -330,6 +419,7 @@
 		};
 		2028E9B82A16393600738940 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3370938ED93327EEC4D443C /* Pods-ArtGallery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
