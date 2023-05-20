@@ -9,4 +9,7 @@ import UIKit
 
 final class ArtDetailViewController: BaseViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }

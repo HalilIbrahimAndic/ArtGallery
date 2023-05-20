@@ -64,11 +64,11 @@
 			children = (
 				2028E9A52A16393300738940 /* AppDelegate.swift */,
 				2028E9A72A16393300738940 /* SceneDelegate.swift */,
+				20C277892A16438700BD24E5 /* View */,
 				20C2778A2A16439000BD24E5 /* ViewControllers */,
 				2028E9AE2A16393600738940 /* Assets.xcassets */,
 				2028E9B02A16393600738940 /* LaunchScreen.storyboard */,
 				2028E9B32A16393600738940 /* Info.plist */,
-				20C277892A16438700BD24E5 /* View */,
 			);
 			path = ArtGallery;
 			sourceTree = "<group>";
