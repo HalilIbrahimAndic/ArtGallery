@@ -9,5 +9,8 @@ import Foundation
 
 final class Constants {
     static let baseURL = "https://api.artic.edu/api/v1/artworks"
-    static let isBoostedURL = "https://api.artic.edu/api/v1/artworks/search?query[term][is_boosted]=true&fields=title,artist_display,image_id, dimensions, publication_history"
+    static let host = "api.artic.edu"
+    static let path = "/api/v1/artworks/search"
+    static let fieldParameters = "title,image_id,id"
+    static let detailFieldParameters = "title,artist_display,image_id, dimensions, publication_history"
 }
