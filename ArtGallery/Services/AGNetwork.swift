@@ -13,7 +13,7 @@ final class AGNetwork {
     //create a shared instance of the network layer.
     static let shared = AGNetwork()
     
-    public func testRequest(router: Router) {
+    public func testRequest(router: AGRouter) {
         do {
             let urlRequest = try router.asURLRequest()
         } catch {
@@ -21,7 +21,8 @@ final class AGNetwork {
         }
     }
     
-    public func request<T: Codable>(router: Router, responseModel: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+    public func request<T: Codable>(router: AGRouter, responseModel: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+        
         do {
             //create request from Router
             let urlRequest = try router.asURLRequest()
