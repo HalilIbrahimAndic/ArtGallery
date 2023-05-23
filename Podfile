@@ -7,5 +7,6 @@ target 'ArtGallery' do
 
   # Pods for ArtGallery
 pod 'Alamofire'
+pod 'Kingfisher'
 
 end

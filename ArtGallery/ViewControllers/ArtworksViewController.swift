@@ -23,6 +23,8 @@ class ArtworksViewController: UIViewController {
     private func registerCell() {
         let cell = UINib(nibName: ArtCell.REUSE_ID, bundle: nil)
         collectionView?.register(cell, forCellWithReuseIdentifier: ArtCell.REUSE_ID)
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
     }
 
     func setupUI() {
@@ -63,8 +65,6 @@ extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewData
         artworks.count
     }
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtCell.REUSE_ID, for: indexPath) as? ArtCell {
             let artwork = artworks[indexPath.row]
@@ -75,5 +75,8 @@ extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewData
         return UICollectionViewCell()
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return .init(width: collectionView.frame.width / 2, height: collectionView.frame.height/2)
+    }
     
 }
