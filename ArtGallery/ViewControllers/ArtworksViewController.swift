@@ -19,18 +19,24 @@ class ArtworksViewController: UIViewController {
         
         setupUI()
     }
+    
+    private func registerCell() {
+        let cell = UINib(nibName: ArtCell.REUSE_ID, bundle: nil)
+        collectionView?.register(cell, forCellWithReuseIdentifier: ArtCell.REUSE_ID)
+    }
 
     func setupUI() {
         title = "Art Gallery"
+        registerCell()
         fetchList()
     }
     
+    //Fetch function for List request
     private func fetchList() {
         AGNetwork.shared.request(router: .list, responseModel: ArtworkResponse.self) { result in
             switch result {
             case .success(let response):
                 self.artworks = response.data ?? []
-                print("veri: ", self.artworks[0].title ?? "empty")
                 self.collectionView?.reloadData()
             case .failure(let error):
                 print(error)
@@ -38,6 +44,7 @@ class ArtworksViewController: UIViewController {
         }
     }
     
+    //Fetch function for Search request
     private func fetchSearch(with query: String) {
         AGNetwork.shared.request(router: .search(by: query), responseModel: ArtworkResponse.self) { result in
             switch result {
@@ -50,3 +57,23 @@ class ArtworksViewController: UIViewController {
     }
 }
 
+//MARK: - CollectionView
+extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        artworks.count
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtCell.REUSE_ID, for: indexPath) as? ArtCell {
+            let artwork = artworks[indexPath.row]
+            //trigger the function that handles cell setup for the specified entry
+            cell.setupCell(for: artwork)
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+    
+    
+}

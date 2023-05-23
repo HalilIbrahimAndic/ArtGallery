@@ -10,6 +10,8 @@
 		200F9B602A19313F009C073D /* AGNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200F9B5F2A19313E009C073D /* AGNetwork.swift */; };
 		200F9B652A197175009C073D /* AGRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200F9B642A197175009C073D /* AGRouter.swift */; };
 		200F9B6B2A1973DF009C073D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200F9B6A2A1973DF009C073D /* Constants.swift */; };
+		2023FAFB2A1D14CE00232B8B /* ArtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023FAF92A1D14CE00232B8B /* ArtCell.swift */; };
+		2023FAFC2A1D14CE00232B8B /* ArtCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2023FAFA2A1D14CE00232B8B /* ArtCell.xib */; };
 		2028E9A62A16393300738940 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028E9A52A16393300738940 /* AppDelegate.swift */; };
 		2028E9A82A16393300738940 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028E9A72A16393300738940 /* SceneDelegate.swift */; };
 		2028E9AA2A16393300738940 /* ArtworksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028E9A92A16393300738940 /* ArtworksViewController.swift */; };
@@ -28,6 +30,8 @@
 		200F9B5F2A19313E009C073D /* AGNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGNetwork.swift; sourceTree = "<group>"; };
 		200F9B642A197175009C073D /* AGRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGRouter.swift; sourceTree = "<group>"; };
 		200F9B6A2A1973DF009C073D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2023FAF92A1D14CE00232B8B /* ArtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCell.swift; sourceTree = "<group>"; };
+		2023FAFA2A1D14CE00232B8B /* ArtCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtCell.xib; sourceTree = "<group>"; };
 		2028E9A22A16393300738940 /* ArtGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2028E9A52A16393300738940 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2028E9A72A16393300738940 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +78,24 @@
 				200F9B642A197175009C073D /* AGRouter.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		2023FAF32A1D139800232B8B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2028E9AB2A16393300738940 /* Main.storyboard */,
+				20C277862A1642EC00BD24E5 /* Detail.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		2023FAFF2A1D14D200232B8B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2023FAF92A1D14CE00232B8B /* ArtCell.swift */,
+				2023FAFA2A1D14CE00232B8B /* ArtCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		2028E9992A16393300738940 = {
@@ -123,8 +145,8 @@
 		20C277892A16438700BD24E5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2028E9AB2A16393300738940 /* Main.storyboard */,
-				20C277862A1642EC00BD24E5 /* Detail.storyboard */,
+				2023FAF32A1D139800232B8B /* Storyboards */,
+				2023FAFF2A1D14D200232B8B /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2023FAFC2A1D14CE00232B8B /* ArtCell.xib in Resources */,
 				2028E9B22A16393600738940 /* LaunchScreen.storyboard in Resources */,
 				2028E9AF2A16393600738940 /* Assets.xcassets in Resources */,
 				2028E9AD2A16393300738940 /* Main.storyboard in Resources */,
@@ -263,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20C2778F2A16444400BD24E5 /* BaseViewController.swift in Sources */,
+				2023FAFB2A1D14CE00232B8B /* ArtCell.swift in Sources */,
 				2028E9AA2A16393300738940 /* ArtworksViewController.swift in Sources */,
 				20C2778C2A1643EE00BD24E5 /* ArtDetailViewController.swift in Sources */,
 				200F9B652A197175009C073D /* AGRouter.swift in Sources */,

@@ -18,7 +18,6 @@ final class AGNetwork {
         do {
             //create request from Router
             let urlRequest = try router.asURLRequest()
-            print(urlRequest)
     
             //Call Alamofire
             AF.request(urlRequest).validate().responseDecodable(of:responseModel.self) { response in

@@ -62,7 +62,7 @@ enum AGRouter: URLRequestConvertible {
     //Create the URL
     func asURLRequest() throws -> URLRequest {
         guard let url = components.url else { throw NSError() }
-        print(url)
+        //print(url)
         
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue

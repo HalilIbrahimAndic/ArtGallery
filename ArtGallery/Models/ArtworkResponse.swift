@@ -17,8 +17,8 @@ final class ArtworkModel: Codable {
     var id: Int?
 
     enum CodingKeys: String, CodingKey {
-        case title = "Title"
-        case id = "ID"
+        case title = "title"
+        case id = "id"
         case image_id = "image_id"
     }
 }
