@@ -13,28 +13,18 @@ final class AGNetwork {
     //create a shared instance of the network layer.
     static let shared = AGNetwork()
     
-    public func testRequest(router: AGRouter) {
-        do {
-            let urlRequest = try router.asURLRequest()
-        } catch {
-            print("error2")
-        }
-    }
-    
+    //Generic fetch request
     public func request<T: Codable>(router: AGRouter, responseModel: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         
         do {
             //create request from Router
             let urlRequest = try router.asURLRequest()
+    
             //Call Alamofire
-            AF.request(urlRequest).validate().responseData { response in
+            AF.request(urlRequest).validate().responseDecodable(of:responseModel) { response in
                 switch response.result {
                 case .success(let result):
-                    do {
-                        // JSON
-                    } catch {
-                        completion(.failure(error))
-                    }
+                    completion(.success(result))
                 case .failure(let error):
                     completion(.failure(error))
                 }

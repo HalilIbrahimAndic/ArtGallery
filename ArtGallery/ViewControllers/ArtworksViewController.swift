@@ -26,10 +26,13 @@ class ArtworksViewController: UIViewController {
     }
     
     private func fetchList() {
-        AGNetwork.shared.request(router: .list, responseModel: [ArtworkModel].self) { result in
+        AGNetwork.shared.request(router: .list, responseModel: ArtworkResponse.self) { result in
             switch result {
             case .success(let response):
-                self.artworks = response
+                self.artworks = response.data ?? []
+                
+                print("veri: ", self.artworks[0].title ?? "empty")
+                self.collectionView?.reloadData()
             case .failure(let error):
                 print(error)
             }
@@ -37,10 +40,10 @@ class ArtworksViewController: UIViewController {
     }
     
     private func fetchSearch(with query: String) {
-        AGNetwork.shared.request(router: .search(by: query), responseModel: ArtworkModel.self) { result in
+        AGNetwork.shared.request(router: .search(by: query), responseModel: ArtworkResponse.self) { result in
             switch result {
             case .success(let response):
-                print("success", response)
+                print("success: ", response.data ?? [])
             case .failure(let error):
                 print(error)
             }

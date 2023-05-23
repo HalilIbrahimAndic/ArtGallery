@@ -18,6 +18,8 @@
 		2028E9B22A16393600738940 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2028E9B02A16393600738940 /* LaunchScreen.storyboard */; };
 		20B400D92A1BA1F4008103A9 /* ArtworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B400D82A1BA1F4008103A9 /* ArtworkModel.swift */; };
 		20B400E02A1BA597008103A9 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B400DF2A1BA597008103A9 /* DetailModel.swift */; };
+		20B400E32A1CE960008103A9 /* ArtworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B400E22A1CE960008103A9 /* ArtworkResponse.swift */; };
+		20B400E62A1CF1F8008103A9 /* DetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B400E52A1CF1F8008103A9 /* DetailResponse.swift */; };
 		20C277872A1642EC00BD24E5 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20C277862A1642EC00BD24E5 /* Detail.storyboard */; };
 		20C2778C2A1643EE00BD24E5 /* ArtDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C2778B2A1643EE00BD24E5 /* ArtDetailViewController.swift */; };
 		20C2778F2A16444400BD24E5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C2778E2A16444400BD24E5 /* BaseViewController.swift */; };
@@ -38,6 +40,8 @@
 		2028E9B32A16393600738940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20B400D82A1BA1F4008103A9 /* ArtworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkModel.swift; sourceTree = "<group>"; };
 		20B400DF2A1BA597008103A9 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		20B400E22A1CE960008103A9 /* ArtworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkResponse.swift; sourceTree = "<group>"; };
+		20B400E52A1CF1F8008103A9 /* DetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailResponse.swift; sourceTree = "<group>"; };
 		20C277862A1642EC00BD24E5 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		20C2778B2A1643EE00BD24E5 /* ArtDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtDetailViewController.swift; sourceTree = "<group>"; };
 		20C2778E2A16444400BD24E5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 			children = (
 				20B400D82A1BA1F4008103A9 /* ArtworkModel.swift */,
 				20B400DF2A1BA597008103A9 /* DetailModel.swift */,
+				20B400E22A1CE960008103A9 /* ArtworkResponse.swift */,
+				20B400E52A1CF1F8008103A9 /* DetailResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,6 +272,8 @@
 				2028E9AA2A16393300738940 /* ArtworksViewController.swift in Sources */,
 				20C2778C2A1643EE00BD24E5 /* ArtDetailViewController.swift in Sources */,
 				200F9B652A197175009C073D /* AGRouter.swift in Sources */,
+				20B400E32A1CE960008103A9 /* ArtworkResponse.swift in Sources */,
+				20B400E62A1CF1F8008103A9 /* DetailResponse.swift in Sources */,
 				20B400D92A1BA1F4008103A9 /* ArtworkModel.swift in Sources */,
 				2028E9A62A16393300738940 /* AppDelegate.swift in Sources */,
 				20B400E02A1BA597008103A9 /* DetailModel.swift in Sources */,
