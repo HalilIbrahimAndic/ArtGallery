@@ -30,7 +30,6 @@ class ArtworksViewController: UIViewController {
             switch result {
             case .success(let response):
                 self.artworks = response.data ?? []
-                
                 print("veri: ", self.artworks[0].title ?? "empty")
                 self.collectionView?.reloadData()
             case .failure(let error):

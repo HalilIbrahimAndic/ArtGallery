@@ -15,13 +15,13 @@ final class AGNetwork {
     
     //Generic fetch request
     public func request<T: Codable>(router: AGRouter, responseModel: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
-        
         do {
             //create request from Router
             let urlRequest = try router.asURLRequest()
+            print(urlRequest)
     
             //Call Alamofire
-            AF.request(urlRequest).validate().responseDecodable(of:responseModel) { response in
+            AF.request(urlRequest).validate().responseDecodable(of:responseModel.self) { response in
                 switch response.result {
                 case .success(let result):
                     completion(.success(result))

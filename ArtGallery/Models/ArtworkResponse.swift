@@ -7,11 +7,21 @@
 
 import Foundation
 
-class ArtworkResponse: Codable{
+final class ArtworkResponse: Codable{
     var data: [ArtworkModel]?
     //var pagination: Pagination?
 }
 
+final class ArtworkModel: Codable {
+    var title, image_id: String?
+    var id: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case title = "Title"
+        case id = "ID"
+        case image_id = "image_id"
+    }
+}
 
 //class Pagination: Codable {
 //    let total, limit, offset, totalPages: Int?
