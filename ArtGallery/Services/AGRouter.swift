@@ -39,7 +39,8 @@ enum AGRouter: URLRequestConvertible {
         case .list:
             return [
                 "query[term][is_boosted]": "true",
-                "fields": Constants.fieldParameters
+                "fields": Constants.fieldParameters,
+                "limit": "20"
             ]
         }
     }
@@ -62,7 +63,7 @@ enum AGRouter: URLRequestConvertible {
     //Create the URL
     func asURLRequest() throws -> URLRequest {
         guard let url = components.url else { throw NSError() }
-        //print(url)
+        print(url)
         
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue

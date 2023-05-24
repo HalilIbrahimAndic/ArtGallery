@@ -24,9 +24,9 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aix-B0-VAV">
-                                <rect key="frame" x="16" y="162" width="382" height="700"/>
+                                <rect key="frame" x="12" y="158" width="390" height="704"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZSJ-df-uCN">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="aZa-aM-cph">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -40,10 +40,10 @@
                         <constraints>
                             <constraint firstItem="nRN-bc-47e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="3wG-1R-N48"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aix-B0-VAV" secondAttribute="bottom" id="4iB-iI-EqY"/>
-                            <constraint firstItem="aix-B0-VAV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HfM-qJ-k2c"/>
+                            <constraint firstItem="aix-B0-VAV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="HfM-qJ-k2c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nRN-bc-47e" secondAttribute="trailing" constant="16" id="SfL-lf-Mnf"/>
-                            <constraint firstItem="aix-B0-VAV" firstAttribute="top" secondItem="nRN-bc-47e" secondAttribute="bottom" constant="16" id="UdC-S5-LzR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aix-B0-VAV" secondAttribute="trailing" constant="16" id="WiE-cU-lDj"/>
+                            <constraint firstItem="aix-B0-VAV" firstAttribute="top" secondItem="nRN-bc-47e" secondAttribute="bottom" constant="12" id="UdC-S5-LzR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aix-B0-VAV" secondAttribute="trailing" constant="12" id="WiE-cU-lDj"/>
                             <constraint firstItem="nRN-bc-47e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="yKA-rx-xvN"/>
                         </constraints>
                     </view>

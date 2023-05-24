@@ -11,54 +11,64 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ArtCell" id="gTV-IL-0wX" customClass="ArtCell" customModule="ArtGallery" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="460" height="412"/>
+            <rect key="frame" x="0.0" y="0.0" width="208" height="324"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="460" height="412"/>
+                <rect key="frame" x="0.0" y="0.0" width="208" height="324"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VnC-wS-ydn">
-                        <rect key="frame" x="0.0" y="0.0" width="460" height="412"/>
+                        <rect key="frame" x="0.0" y="0.0" width="208" height="324"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GpU-PC-W1C">
-                                <rect key="frame" x="140" y="8" width="180" height="200"/>
+                                <rect key="frame" x="9" y="8" width="190" height="190"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Z93-Mb-sRa"/>
-                                    <constraint firstAttribute="width" constant="180" id="dmZ-E5-hj6"/>
+                                    <constraint firstAttribute="width" constant="190" id="M3m-Rl-gjK"/>
+                                    <constraint firstAttribute="height" constant="190" id="jLw-B3-9Ul"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vth-0O-ldZ">
-                                <rect key="frame" x="100" y="224" width="260" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="8" y="206" width="192" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gug-qW-kNo" userLabel="Artist Title">
+                                <rect key="frame" x="8" y="238" width="192" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GpU-PC-W1C" firstAttribute="centerX" secondItem="VnC-wS-ydn" secondAttribute="centerX" id="4Wm-gd-mkT"/>
-                            <constraint firstItem="GpU-PC-W1C" firstAttribute="top" secondItem="VnC-wS-ydn" secondAttribute="top" constant="8" id="C37-t3-sAU"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vth-0O-ldZ" secondAttribute="bottom" priority="750" constant="8" id="Fdr-og-2U1"/>
-                            <constraint firstAttribute="trailing" secondItem="vth-0O-ldZ" secondAttribute="trailing" constant="100" id="qJb-m6-mdO"/>
-                            <constraint firstItem="vth-0O-ldZ" firstAttribute="leading" secondItem="VnC-wS-ydn" secondAttribute="leading" constant="100" id="uMZ-7s-Ufx"/>
-                            <constraint firstItem="vth-0O-ldZ" firstAttribute="top" secondItem="GpU-PC-W1C" secondAttribute="bottom" constant="16" id="ujG-4e-NaR"/>
+                            <constraint firstItem="GpU-PC-W1C" firstAttribute="centerX" secondItem="VnC-wS-ydn" secondAttribute="centerX" id="2qp-Cv-Kq6"/>
+                            <constraint firstItem="Gug-qW-kNo" firstAttribute="top" secondItem="vth-0O-ldZ" secondAttribute="bottom" constant="8" id="6WJ-9I-a96"/>
+                            <constraint firstItem="vth-0O-ldZ" firstAttribute="leading" secondItem="VnC-wS-ydn" secondAttribute="leading" constant="8" id="BXi-DS-HFp"/>
+                            <constraint firstItem="Gug-qW-kNo" firstAttribute="leading" secondItem="VnC-wS-ydn" secondAttribute="leading" constant="8" id="SK5-tp-rpC"/>
+                            <constraint firstAttribute="trailing" secondItem="Gug-qW-kNo" secondAttribute="trailing" constant="8" id="WhP-gc-Cdd"/>
+                            <constraint firstItem="vth-0O-ldZ" firstAttribute="top" secondItem="GpU-PC-W1C" secondAttribute="bottom" constant="8" id="fgO-BS-UhA"/>
+                            <constraint firstItem="GpU-PC-W1C" firstAttribute="top" secondItem="VnC-wS-ydn" secondAttribute="top" constant="8" id="l52-jx-EYZ"/>
+                            <constraint firstAttribute="trailing" secondItem="vth-0O-ldZ" secondAttribute="trailing" constant="8" id="oQz-R0-SFS"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Gug-qW-kNo" secondAttribute="bottom" priority="750" constant="8" id="sGD-CS-hWa"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="VnC-wS-ydn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="38s-bq-puD"/>
-                <constraint firstAttribute="trailing" secondItem="VnC-wS-ydn" secondAttribute="trailing" id="OEb-kT-Fhv"/>
-                <constraint firstAttribute="bottom" secondItem="VnC-wS-ydn" secondAttribute="bottom" id="gXx-vg-866"/>
-                <constraint firstItem="VnC-wS-ydn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="x8R-Or-lK0"/>
+                <constraint firstAttribute="bottom" secondItem="VnC-wS-ydn" secondAttribute="bottom" id="9cH-qU-1lE"/>
+                <constraint firstAttribute="trailing" secondItem="VnC-wS-ydn" secondAttribute="trailing" id="npj-sy-aSr"/>
+                <constraint firstItem="VnC-wS-ydn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uAO-Cz-Meo"/>
+                <constraint firstItem="VnC-wS-ydn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="v7L-zf-DpN"/>
             </constraints>
-            <size key="customSize" width="460" height="412"/>
+            <size key="customSize" width="208" height="324"/>
             <connections>
                 <outlet property="artImage" destination="GpU-PC-W1C" id="8zy-z7-mmI"/>
                 <outlet property="artTitle" destination="vth-0O-ldZ" id="8r8-wZ-zGz"/>
+                <outlet property="artistTitle" destination="Gug-qW-kNo" id="ZCx-ye-HZN"/>
             </connections>
-            <point key="canvasLocation" x="-137.68115942028987" y="4.0178571428571423"/>
+            <point key="canvasLocation" x="-320.28985507246381" y="-25.446428571428569"/>
         </collectionViewCell>
     </objects>
     <resources>

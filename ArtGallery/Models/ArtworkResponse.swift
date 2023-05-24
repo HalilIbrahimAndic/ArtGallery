@@ -13,13 +13,14 @@ final class ArtworkResponse: Codable{
 }
 
 final class ArtworkModel: Codable {
-    var title, image_id: String?
+    var title, artistTitle, imageID: String?
     var id: Int?
 
     enum CodingKeys: String, CodingKey {
         case title = "title"
+        case artistTitle = "artist_title"
         case id = "id"
-        case image_id = "image_id"
+        case imageID = "image_id"
     }
 }
 

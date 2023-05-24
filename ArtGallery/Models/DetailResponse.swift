@@ -13,15 +13,15 @@ class DetailResponse: Codable{
 }
 
 final class DetailModel: Codable {
-    var title, image_id, artist_display, publication_history, dimensions: String?
+    var title, imageID, artistTitle, history, dimensions: String?
     var id: Int?
     
     enum CodingKeys: String, CodingKey {
-        case title = "Title"
-        case image_id = "Image ID"
-        case artist_display = "Artist Display"
-        case publication_history = "Publication History"
-        case dimensions = "Dimensions"
-        case id
+        case title = "title"
+        case imageID = "image_id"
+        case artistTitle = "artist_title"
+        case history = "publication_history"
+        case dimensions = "dimensions"
+        case id = "id"
     }
 }

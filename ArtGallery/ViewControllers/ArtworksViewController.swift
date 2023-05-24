@@ -20,16 +20,17 @@ class ArtworksViewController: UIViewController {
         setupUI()
     }
     
-    private func registerCell() {
+    private func setupCollectionView() {
         let cell = UINib(nibName: ArtCell.REUSE_ID, bundle: nil)
         collectionView?.register(cell, forCellWithReuseIdentifier: ArtCell.REUSE_ID)
+
         collectionView?.delegate = self
         collectionView?.dataSource = self
     }
 
     func setupUI() {
         title = "Art Gallery"
-        registerCell()
+        setupCollectionView()
         fetchList()
     }
     
@@ -60,9 +61,9 @@ class ArtworksViewController: UIViewController {
 }
 
 //MARK: - CollectionView
-extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        artworks.count
+        return artworks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -75,8 +76,13 @@ extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewData
         return UICollectionViewCell()
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: collectionView.frame.width / 2, height: collectionView.frame.height/2)
-    }
+        }
+
     
 }

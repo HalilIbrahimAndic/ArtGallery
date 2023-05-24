@@ -12,8 +12,9 @@ class ArtCell: UICollectionViewCell {
 
     static let REUSE_ID = "ArtCell"
     
-    @IBOutlet weak var artImage: UIImageView!
-    @IBOutlet weak var artTitle: UILabel!
+    @IBOutlet weak var artImage: UIImageView?
+    @IBOutlet weak var artTitle: UILabel?
+    @IBOutlet weak var artistTitle: UILabel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,11 +24,13 @@ class ArtCell: UICollectionViewCell {
     func setupCell(for artwork: ArtworkModel) {
         let placeholderImage = UIImage(named: "noImage")
         artTitle?.text = artwork.title
-        artImage?.kf.setImage(with: URL(string: createImageURL(with: artwork.image_id ?? "")), placeholder: placeholderImage)
+        artistTitle?.text = artwork.artistTitle
+        artImage?.kf.setImage(with: URL(string: createImageURL(with: artwork.imageID ?? "")), placeholder: placeholderImage)
+        
     }
     
     func createImageURL(with iiifID: String) -> String {
-        return "https://www.artic.edu/iiif/2/\(iiifID)/full/843,/0/default.jpg"
+        return "https://www.artic.edu/iiif/2/\(iiifID)/full/200,/0/default.jpg"
     }
 
 }
