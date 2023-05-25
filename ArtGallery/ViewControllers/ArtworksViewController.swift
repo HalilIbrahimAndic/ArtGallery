@@ -13,6 +13,7 @@ class ArtworksViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView?
     
     private var artworks: [ArtworkModel] = []
+    private var detailedArtwork = DetailModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +24,11 @@ class ArtworksViewController: UIViewController {
     private func setupCollectionView() {
         let cell = UINib(nibName: ArtCell.REUSE_ID, bundle: nil)
         collectionView?.register(cell, forCellWithReuseIdentifier: ArtCell.REUSE_ID)
-
         collectionView?.delegate = self
         collectionView?.dataSource = self
     }
 
     func setupUI() {
-        title = "Art Gallery"
         setupCollectionView()
         //fetchList()
         fetchSearch(with: "")
@@ -60,6 +59,18 @@ class ArtworksViewController: UIViewController {
             }
         }
     }
+    
+    //Fetch function for Detail request
+    private func fetchDetail(with id: Int) {
+        AGNetwork.shared.request(router: .detail(by: String(id)), responseModel: DetailResponse.self) { result in
+            switch result {
+            case .success(let response):
+                self.detailedArtwork = response.data?[0] ?? DetailModel()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
 
 //MARK: - CollectionView
@@ -76,6 +87,14 @@ extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewData
             return cell
         }
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let id = artworks[indexPath.row].id else { return }
+        
+        fetchDetail(with: id)
+        
+        if l
     }
 }
 
