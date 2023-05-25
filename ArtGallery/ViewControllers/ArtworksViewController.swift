@@ -31,12 +31,26 @@ class ArtworksViewController: UIViewController {
     func setupUI() {
         title = "Art Gallery"
         setupCollectionView()
-        fetchList()
+        //fetchList()
+        fetchSearch(with: "")
     }
     
     //Fetch function for List request
-    private func fetchList() {
-        AGNetwork.shared.request(router: .list, responseModel: ArtworkResponse.self) { result in
+//    private func fetchList() {
+//        AGNetwork.shared.request(router: .list, responseModel: ArtworkResponse.self) { result in
+//            switch result {
+//            case .success(let response):
+//                self.artworks = response.data ?? []
+//                self.collectionView?.reloadData()
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
+    
+    //Fetch function for Search request
+    private func fetchSearch(with query: String) {
+        AGNetwork.shared.request(router: .search(by: query), responseModel: ArtworkResponse.self) { result in
             switch result {
             case .success(let response):
                 self.artworks = response.data ?? []
@@ -46,22 +60,10 @@ class ArtworksViewController: UIViewController {
             }
         }
     }
-    
-    //Fetch function for Search request
-    private func fetchSearch(with query: String) {
-        AGNetwork.shared.request(router: .search(by: query), responseModel: ArtworkResponse.self) { result in
-            switch result {
-            case .success(let response):
-                print("success: ", response.data ?? [])
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
 }
 
 //MARK: - CollectionView
-extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return artworks.count
     }
@@ -75,14 +77,12 @@ extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewData
         }
         return UICollectionViewCell()
     }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
+}
+
+extension ArtworksViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: collectionView.frame.width / 2, height: collectionView.frame.height/2)
         }
-
-    
 }
+    
+

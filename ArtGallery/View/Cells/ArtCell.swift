@@ -30,7 +30,7 @@ class ArtCell: UICollectionViewCell {
     }
     
     func createImageURL(with iiifID: String) -> String {
-        return "https://www.artic.edu/iiif/2/\(iiifID)/full/200,/0/default.jpg"
+        return "https://www.artic.edu/iiif/2/\(iiifID)/full/180,/0/default.jpg"
     }
 
 }
