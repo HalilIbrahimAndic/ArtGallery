@@ -94,7 +94,9 @@ extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewData
         
         fetchDetail(with: id)
         
-        if l
+        if let detailVC = self.getViewController(viewController: ArtDetailViewController, from: "Detail") {
+            
+        }
     }
 }
 

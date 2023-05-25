@@ -115,7 +115,7 @@
                     </view>
                     <connections>
                         <outlet property="imageViewArt" destination="RnS-QT-Hf1" id="GNq-Ag-aMa"/>
-                        <outlet property="labelArtist" destination="wa0-qb-RGP" id="VZ8-KD-gGP"/>
+                        <outlet property="labelArtist" destination="1Vg-AC-Dal" id="FuB-dH-kXz"/>
                         <outlet property="labelDimension" destination="yj4-Xm-AI1" id="0iv-uK-sZV"/>
                         <outlet property="labelHistory" destination="40d-v3-ofH" id="bzG-Kh-Pti"/>
                         <outlet property="labelTitle" destination="Rii-RC-7Mu" id="Qoq-i7-MZO"/>

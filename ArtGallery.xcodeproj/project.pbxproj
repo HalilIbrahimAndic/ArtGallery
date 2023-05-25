@@ -100,6 +100,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		2023FB092A1F9ADF00232B8B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2023FB062A1F96E100232B8B /* UIVC+Navigation.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		2028E9992A16393300738940 = {
 			isa = PBXGroup;
 			children = (
@@ -131,7 +139,7 @@
 				20C2778A2A16439000BD24E5 /* ViewControllers */,
 				20B400DB2A1BA3DE008103A9 /* Models */,
 				200F9B622A193192009C073D /* Services */,
-				2023FB062A1F96E100232B8B /* UIVC+Navigation.swift */,
+				2023FB092A1F9ADF00232B8B /* Extensions */,
 			);
 			path = ArtGallery;
 			sourceTree = "<group>";
