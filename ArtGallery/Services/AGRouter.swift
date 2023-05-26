@@ -10,15 +10,14 @@ import Alamofire
 
 enum AGRouter: URLRequestConvertible {
     
-    //There are 3 request cases where two of them requires user input
+    //There are 2 request cases
     case search(by: String)
     case detail(by: String)
-    case list
     
     //Define GET method for all cases
     var method: HTTPMethod {
         switch self {
-        case .search, .detail, .list:
+        case .search, .detail:
             return .get
         }
     }
@@ -37,12 +36,6 @@ enum AGRouter: URLRequestConvertible {
                 "query[term][id]": id,
                 "fields": Constants.detailFieldParameters
             ]
-        case .list:
-            return [
-                //"query[term][is_boosted]": "true",
-                "fields": Constants.fieldParameters,
-                "limit": "20"
-            ]
         }
     }
     
@@ -54,7 +47,7 @@ enum AGRouter: URLRequestConvertible {
         urlComponents.path = Constants.path // "/api/v1/artworks/search"
         
         switch self {
-        case .search, .detail, .list:
+        case .search, .detail:
             urlComponents.setQueryItems(with: params)
         }
         
@@ -64,8 +57,6 @@ enum AGRouter: URLRequestConvertible {
     //Create the URL
     func asURLRequest() throws -> URLRequest {
         guard let url = components.url else { throw NSError() }
-        //print(url)
-        
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         

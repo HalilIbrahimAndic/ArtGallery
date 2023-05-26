@@ -13,7 +13,7 @@ class ArtworksViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView?
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
     
-    //create an instance of Artwork to store fetched data
+    //create an instance of Artwork array to store fetched data
     private var artworks: [ArtworkModel] = []
     
     override func viewDidLoad() {
@@ -41,19 +41,6 @@ class ArtworksViewController: UIViewController {
         searchBar?.delegate = self
         searchBar?.placeholder = "Type here to search artwork..."
     }
-
-    //Fetch function for List request
-//    private func fetchList() {
-//        AGNetwork.shared.request(router: .list, responseModel: ArtworkResponse.self) { result in
-//            switch result {
-//            case .success(let response):
-//                self.artworks = response.data ?? []
-//                self.collectionView?.reloadData()
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//    }
     
     //Fetch function for Search request
     private func fetchSearch(with query: String) {
@@ -74,12 +61,15 @@ class ArtworksViewController: UIViewController {
     
     //Fetch function for Detail request
     private func fetchDetail(with id: Int, onSuccess: @escaping ((DetailModel?) -> Void), onFailure: @escaping ((Error?) -> Void)) {
+        startActivityIndicator()
         
         AGNetwork.shared.request(router: .detail(by: String(id)), responseModel: DetailResponse.self) { result in
             switch result {
             case .success(let response):
+                self.stopActivityIndicator()
                 onSuccess(response.data?[0])
             case .failure(let error):
+                self.stopActivityIndicator()
                 print(error)
             }
         }
@@ -105,7 +95,6 @@ extension ArtworksViewController: UISearchBarDelegate {
         } else {
             fetchSearch(with: "")
         }
-        
     }
 }
 
@@ -118,7 +107,8 @@ extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArtCell.REUSE_ID, for: indexPath) as? ArtCell {
             let artwork = artworks[indexPath.row]
-            //trigger the function that handles cell setup for the specified entry
+            
+            //trigger the function that handles cell setup for the selected artwork
             cell.setupCell(for: artwork)
             return cell
         }
@@ -133,7 +123,9 @@ extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewData
                 detailVC.initializeWith(artwork: detailedArtwork)
                 self.navigationController?.pushViewController(detailVC, animated: true)
             }
-        } onFailure: { _ in }
+        } onFailure: { _ in
+            print("Failed to get detail")
+        }
     }
 }
 
@@ -141,6 +133,6 @@ extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewData
 // layout setup for 2x2 grid presentation
 extension ArtworksViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: collectionView.frame.width / 2, height: collectionView.frame.height/2)
+        return CGSize(width: collectionView.frame.width / 2, height: collectionView.frame.height/2)
         }
 }

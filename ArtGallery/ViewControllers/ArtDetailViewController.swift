@@ -11,7 +11,6 @@ import Kingfisher
 
 class ArtDetailViewController: BaseViewController {
     
-    
     @IBOutlet weak var imageViewArt: UIImageView?
     @IBOutlet weak var labelTitle: UILabel?
     @IBOutlet weak var labelArtist: UILabel?
@@ -36,6 +35,5 @@ class ArtDetailViewController: BaseViewController {
         labelDimension?.text = "Dimensions: \(artwork?.dimensions ?? "")"
         labelHistory?.text = "Publication History: \(artwork?.history ?? "")"
         imageViewArt?.kf.setImage(with: URL(string: super.createImageURL(with: artwork?.imageID ?? "")), placeholder: placeholderImage)
-        
     }
 }
