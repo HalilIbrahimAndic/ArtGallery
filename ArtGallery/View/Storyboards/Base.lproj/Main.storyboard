@@ -51,7 +51,9 @@
                             <constraint firstItem="nRN-bc-47e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="yKA-rx-xvN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Art Gallery" id="twv-YY-JjD"/>
+                    <navigationItem key="navigationItem" title="Art Gallery" id="twv-YY-JjD">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="75q-FC-JZL"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="t37-J7-uC4" id="Lz8-NF-l8X"/>
                         <outlet property="collectionView" destination="aix-B0-VAV" id="S2i-if-Yd0"/>
