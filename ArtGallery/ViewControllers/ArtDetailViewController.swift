@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Kingfisher
 
-final class ArtDetailViewController: BaseViewController {
+class ArtDetailViewController: BaseViewController {
     
     @IBOutlet weak var imageViewArt: UIImageView?
     @IBOutlet weak var labelTitle: UILabel?
@@ -36,5 +36,4 @@ final class ArtDetailViewController: BaseViewController {
         labelHistory?.text = "Publication History: \(artwork?.artistTitle ?? "")"
         imageViewArt?.kf.setImage(with: URL(string: super.createImageURL(with: artwork?.imageID ?? "")), placeholder: placeholderImage)
     }
-    
 }

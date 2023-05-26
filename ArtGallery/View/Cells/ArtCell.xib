@@ -21,36 +21,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="208" height="324"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GpU-PC-W1C">
-                                <rect key="frame" x="14" y="8" width="180" height="180"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="M3m-Rl-gjK"/>
-                                    <constraint firstAttribute="height" constant="180" id="jLw-B3-9Ul"/>
-                                </constraints>
+                                <rect key="frame" x="8" y="8" width="192" height="225"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vth-0O-ldZ">
-                                <rect key="frame" x="8" y="196" width="192" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vth-0O-ldZ">
+                                <rect key="frame" x="8" y="241" width="192" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ycf-jV-sKg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gug-qW-kNo" userLabel="Artist Title">
-                                <rect key="frame" x="8" y="228" width="192" height="20.5"/>
+                                <rect key="frame" x="8" y="295" width="192" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Myi-1r-ZLD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.17457170050761417" green="0.17457170050761417" blue="0.17457170050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.17457170050761417" green="0.17457170050761417" blue="0.17457170050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GpU-PC-W1C" firstAttribute="centerX" secondItem="VnC-wS-ydn" secondAttribute="centerX" id="2qp-Cv-Kq6"/>
-                            <constraint firstItem="Gug-qW-kNo" firstAttribute="top" secondItem="vth-0O-ldZ" secondAttribute="bottom" constant="8" id="6WJ-9I-a96"/>
+                            <constraint firstItem="Gug-qW-kNo" firstAttribute="top" secondItem="vth-0O-ldZ" secondAttribute="bottom" constant="4" id="6WJ-9I-a96"/>
                             <constraint firstItem="vth-0O-ldZ" firstAttribute="leading" secondItem="VnC-wS-ydn" secondAttribute="leading" constant="8" id="BXi-DS-HFp"/>
                             <constraint firstItem="Gug-qW-kNo" firstAttribute="leading" secondItem="VnC-wS-ydn" secondAttribute="leading" constant="8" id="SK5-tp-rpC"/>
                             <constraint firstAttribute="trailing" secondItem="Gug-qW-kNo" secondAttribute="trailing" constant="8" id="WhP-gc-Cdd"/>
-                            <constraint firstItem="vth-0O-ldZ" firstAttribute="top" secondItem="GpU-PC-W1C" secondAttribute="bottom" constant="8" id="fgO-BS-UhA"/>
+                            <constraint firstAttribute="trailing" secondItem="GpU-PC-W1C" secondAttribute="trailing" constant="8" id="bTW-kZ-pCt"/>
+                            <constraint firstItem="GpU-PC-W1C" firstAttribute="leading" secondItem="VnC-wS-ydn" secondAttribute="leading" constant="8" id="dhn-Zv-E0e"/>
+                            <constraint firstItem="vth-0O-ldZ" firstAttribute="top" secondItem="GpU-PC-W1C" secondAttribute="bottom" priority="750" constant="8" id="fgO-BS-UhA"/>
                             <constraint firstItem="GpU-PC-W1C" firstAttribute="top" secondItem="VnC-wS-ydn" secondAttribute="top" constant="8" id="l52-jx-EYZ"/>
                             <constraint firstAttribute="trailing" secondItem="vth-0O-ldZ" secondAttribute="trailing" constant="8" id="oQz-R0-SFS"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Gug-qW-kNo" secondAttribute="bottom" priority="750" constant="8" id="sGD-CS-hWa"/>
+                            <constraint firstAttribute="bottom" secondItem="Gug-qW-kNo" secondAttribute="bottom" constant="8" id="sGD-CS-hWa"/>
                         </constraints>
                     </view>
                 </subviews>

@@ -12,13 +12,22 @@ class ArtworksViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar?
     @IBOutlet weak var collectionView: UICollectionView?
     
+    //create an instance of Artwork to store fetched data
     private var artworks: [ArtworkModel] = []
-    private var detailedArtwork = DetailModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
+    }
+    
+    func setupUI() {
+        //setup UI Components
+        setupCollectionView()
+        setupSearchBar()
+        
+        // For the initial list view, send nil search request
+        fetchSearch(with: "")
+        
     }
     
     private func setupCollectionView() {
@@ -27,12 +36,12 @@ class ArtworksViewController: UIViewController {
         collectionView?.delegate = self
         collectionView?.dataSource = self
     }
-
-    func setupUI() {
-        setupCollectionView()
-        //fetchList()
-        fetchSearch(with: "")
+    
+    private func setupSearchBar() {
+        searchBar?.delegate = self
     }
+
+    
     
     //Fetch function for List request
 //    private func fetchList() {
@@ -61,15 +70,23 @@ class ArtworksViewController: UIViewController {
     }
     
     //Fetch function for Detail request
-    private func fetchDetail(with id: Int) {
+    private func fetchDetail(with id: Int, onSuccess: @escaping ((DetailModel?) -> Void), onFailure: @escaping ((Error?) -> Void)) {
+        
         AGNetwork.shared.request(router: .detail(by: String(id)), responseModel: DetailResponse.self) { result in
             switch result {
             case .success(let response):
-                self.detailedArtwork = response.data?[0] ?? DetailModel()
+                onSuccess(response.data?[0])
             case .failure(let error):
                 print(error)
             }
         }
+    }
+}
+
+//MARK: - SearchBar
+extension ArtworksViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        fetchSearch(with: searchText)
     }
 }
 
@@ -89,15 +106,16 @@ extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewData
         return UICollectionViewCell()
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let id = artworks[indexPath.row].id else { return }
-        
-        fetchDetail(with: id)
-        
-        if let detailVC = self.getViewController(viewController: ArtDetailViewController, from: "Detail") {
-            
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        guard let id = artworks[indexPath.row].id else { return }
+//
+//        fetchDetail(with: id) { detailedArtwork in
+//            let detailVC = self.getViewController(viewController: ArtDetailViewController, storyboardName: "Detail")
+//        } onFailure: { _ in }
+//
+//
+//
+//    }
 }
 
 extension ArtworksViewController: UICollectionViewDelegateFlowLayout {
