@@ -11,6 +11,7 @@ class ArtworksViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar?
     @IBOutlet weak var collectionView: UICollectionView?
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
     
     //create an instance of Artwork to store fetched data
     private var artworks: [ArtworkModel] = []
@@ -21,13 +22,12 @@ class ArtworksViewController: UIViewController {
     }
     
     func setupUI() {
-        //setup UI Components
+        //setup UIKit Components
         setupCollectionView()
         setupSearchBar()
         
         // For the initial list view, send nil search request
         fetchSearch(with: "")
-        
     }
     
     private func setupCollectionView() {
@@ -39,10 +39,9 @@ class ArtworksViewController: UIViewController {
     
     private func setupSearchBar() {
         searchBar?.delegate = self
+        searchBar?.placeholder = "Type here to search artwork..."
     }
 
-    
-    
     //Fetch function for List request
 //    private func fetchList() {
 //        AGNetwork.shared.request(router: .list, responseModel: ArtworkResponse.self) { result in
@@ -58,12 +57,16 @@ class ArtworksViewController: UIViewController {
     
     //Fetch function for Search request
     private func fetchSearch(with query: String) {
+        startActivityIndicator()
+        
         AGNetwork.shared.request(router: .search(by: query), responseModel: ArtworkResponse.self) { result in
             switch result {
             case .success(let response):
+                self.stopActivityIndicator()
                 self.artworks = response.data ?? []
                 self.collectionView?.reloadData()
             case .failure(let error):
+                self.stopActivityIndicator()
                 print(error)
             }
         }
@@ -81,12 +84,28 @@ class ArtworksViewController: UIViewController {
             }
         }
     }
+    
+    private func startActivityIndicator() {
+        activityIndicator?.isHidden = false
+        activityIndicator?.startAnimating()
+    }
+    
+    private func stopActivityIndicator() {
+        activityIndicator?.isHidden = true
+        activityIndicator?.stopAnimating()
+    }
 }
 
 //MARK: - SearchBar
 extension ArtworksViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        fetchSearch(with: searchText)
+        //search request requires at least 3 letters to start
+        if searchText.count >= 3 {
+            fetchSearch(with: searchText)
+        } else {
+            fetchSearch(with: "")
+        }
+        
     }
 }
 
@@ -106,22 +125,22 @@ extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewData
         return UICollectionViewCell()
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let id = artworks[indexPath.row].id else { return }
-//
-//        fetchDetail(with: id) { detailedArtwork in
-//            let detailVC = self.getViewController(viewController: ArtDetailViewController, storyboardName: "Detail")
-//        } onFailure: { _ in }
-//
-//
-//
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let id = artworks[indexPath.row].id else { return }
+
+        fetchDetail(with: id) { detailedArtwork in
+            if let detailVC = self.getViewController(viewController: ArtDetailViewController(), storyboardName: "Detail") {
+                detailVC.initializeWith(artwork: detailedArtwork)
+                self.navigationController?.pushViewController(detailVC, animated: true)
+            }
+        } onFailure: { _ in }
+    }
 }
 
+//MARK: - Layout Extension
+// layout setup for 2x2 grid presentation
 extension ArtworksViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: collectionView.frame.width / 2, height: collectionView.frame.height/2)
         }
 }
-    
-

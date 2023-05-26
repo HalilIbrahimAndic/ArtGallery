@@ -33,7 +33,7 @@ class ArtDetailViewController: BaseViewController {
         labelTitle?.text = artwork?.title
         labelArtist?.text = "Artist: \(artwork?.artistTitle ?? "")"
         labelDimension?.text = "Dimensions: \(artwork?.dimensions ?? "")"
-        labelHistory?.text = "Publication History: \(artwork?.artistTitle ?? "")"
+        labelHistory?.text = "Publication History: \(artwork?.history ?? "")"
         imageViewArt?.kf.setImage(with: URL(string: super.createImageURL(with: artwork?.imageID ?? "")), placeholder: placeholderImage)
     }
 }
