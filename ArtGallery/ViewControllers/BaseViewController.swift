@@ -23,6 +23,6 @@ class BaseViewController: UIViewController {
     }
     
     func createImageURL(with iiifID: String) -> String {
-        return "https://www.artic.edu/iiif/2/\(iiifID)/full/180,/0/default.jpg"
+        return "https://www.artic.edu/iiif/2/\(iiifID)/full/350,/0/default.jpg"
     }
 }
