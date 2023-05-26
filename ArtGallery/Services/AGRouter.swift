@@ -11,7 +11,7 @@ import Alamofire
 enum AGRouter: URLRequestConvertible {
     
     //There are 2 request cases
-    case search(by: String)
+    case search(by: String, for: Int)
     case detail(by: String)
     
     //Define GET method for all cases
@@ -25,11 +25,12 @@ enum AGRouter: URLRequestConvertible {
     //Define customized query parameters for each case
     var params: [String: String] {
         switch self {
-        case .search(let artName):
+        case .search(let artName, let pageNumber):
             return [
                 "q": artName,
+                "page": "\(pageNumber)",
                 "fields": Constants.fieldParameters,
-                "limit": "20"
+                "limit": "\(Constants.pageLimit)"
             ]
         case .detail(let id):
             return [
@@ -58,6 +59,7 @@ enum AGRouter: URLRequestConvertible {
     func asURLRequest() throws -> URLRequest {
         guard let url = components.url else { throw NSError() }
         var request = URLRequest(url: url)
+        print(request)
         request.httpMethod = method.rawValue
         
         return request

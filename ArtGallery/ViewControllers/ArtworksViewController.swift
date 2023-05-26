@@ -8,13 +8,17 @@
 import UIKit
 
 class ArtworksViewController: UIViewController {
-
+    
     @IBOutlet weak var searchBar: UISearchBar?
     @IBOutlet weak var collectionView: UICollectionView?
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
     
     //create an instance of Artwork array to store fetched data
     private var artworks: [ArtworkModel] = []
+    private var queryText = ""
+    private var currentPage = 1
+    private var totalPages = 50
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +26,12 @@ class ArtworksViewController: UIViewController {
     }
     
     func setupUI() {
-        //setup UIKit Components
+        //setup UI Components
         setupCollectionView()
         setupSearchBar()
         
-        // For the initial list view, send nil search request
-        fetchSearch(with: "")
+        // Initial list request
+        fetchSearch(query: queryText, page: 1)
     }
     
     private func setupCollectionView() {
@@ -35,6 +39,9 @@ class ArtworksViewController: UIViewController {
         collectionView?.register(cell, forCellWithReuseIdentifier: ArtCell.REUSE_ID)
         collectionView?.delegate = self
         collectionView?.dataSource = self
+        
+        refreshControl.addTarget(self, action: #selector(loadPage), for: .valueChanged)
+        collectionView?.refreshControl = refreshControl
     }
     
     private func setupSearchBar() {
@@ -42,15 +49,34 @@ class ArtworksViewController: UIViewController {
         searchBar?.placeholder = "Type here to search artwork..."
     }
     
+    // Selector function for refreshControl
+    @objc func loadPage() {
+        currentPage += 1
+        fetchSearch(query: queryText, page: currentPage)
+        refreshControl.endRefreshing()
+    }
+    
+    private func startActivityIndicator() {
+        activityIndicator?.isHidden = false
+        activityIndicator?.startAnimating()
+    }
+    
+    private func stopActivityIndicator() {
+        activityIndicator?.isHidden = true
+        activityIndicator?.stopAnimating()
+    }
+    
+    //MARK: - Fetch Functions
     //Fetch function for Search request
-    private func fetchSearch(with query: String) {
+    private func fetchSearch(query: String, page: Int) {
         startActivityIndicator()
         
-        AGNetwork.shared.request(router: .search(by: query), responseModel: ArtworkResponse.self) { result in
+        AGNetwork.shared.request(router: .search(by: query, for: page), responseModel: ArtworkResponse.self) { result in
             switch result {
             case .success(let response):
                 self.stopActivityIndicator()
-                self.artworks = response.data ?? []
+                self.artworks.append(contentsOf: response.data ?? [])
+                //self.artworks = response.data ?? []
                 self.collectionView?.reloadData()
             case .failure(let error):
                 self.stopActivityIndicator()
@@ -74,16 +100,6 @@ class ArtworksViewController: UIViewController {
             }
         }
     }
-    
-    private func startActivityIndicator() {
-        activityIndicator?.isHidden = false
-        activityIndicator?.startAnimating()
-    }
-    
-    private func stopActivityIndicator() {
-        activityIndicator?.isHidden = true
-        activityIndicator?.stopAnimating()
-    }
 }
 
 //MARK: - SearchBar
@@ -91,10 +107,15 @@ extension ArtworksViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //search request requires at least 3 letters to start
         if searchText.count >= 3 {
-            fetchSearch(with: searchText)
+            queryText = searchText
         } else {
-            fetchSearch(with: "")
+            queryText = ""
         }
+        
+        //resets before each search request
+        artworks = []
+        currentPage = 0
+        loadPage()
     }
 }
 
@@ -117,7 +138,7 @@ extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let id = artworks[indexPath.row].id else { return }
-
+        
         fetchDetail(with: id) { detailedArtwork in
             if let detailVC = self.getViewController(viewController: ArtDetailViewController(), storyboardName: "Detail") {
                 detailVC.initializeWith(artwork: detailedArtwork)
@@ -127,6 +148,13 @@ extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewData
             print("Failed to get detail")
         }
     }
+    
+    // Pagination
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.item == artworks.count - 1, currentPage < totalPages {
+            loadPage()
+        }
+    }
 }
 
 //MARK: - Layout Extension
@@ -134,5 +162,5 @@ extension ArtworksViewController: UICollectionViewDelegate, UICollectionViewData
 extension ArtworksViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width / 2, height: collectionView.frame.height/2)
-        }
+    }
 }

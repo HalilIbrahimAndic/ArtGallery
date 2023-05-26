@@ -25,12 +25,9 @@ final class ArtworkModel: Codable {
 }
 
 //class Pagination: Codable {
-//    let total, limit, offset, totalPages: Int?
-//    let currentPage: Int?
+//    let nextURL: String
 //
 //    enum CodingKeys: String, CodingKey {
-//        case total, limit, offset
-//        case totalPages = "total_pages"
-//        case currentPage = "current_page"
+//        case nextURL = "next_url"
 //    }
 //}

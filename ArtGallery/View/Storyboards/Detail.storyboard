@@ -76,7 +76,7 @@
                                             <constraint firstAttribute="height" constant="1300" id="69k-br-vaX"/>
                                             <constraint firstItem="tI9-yq-Ewh" firstAttribute="top" secondItem="9B9-mU-Gkj" secondAttribute="top" constant="12" id="PbZ-fE-Sex"/>
                                             <constraint firstAttribute="trailing" secondItem="tI9-yq-Ewh" secondAttribute="trailing" constant="12" id="Thh-Es-Vpq"/>
-                                            <constraint firstAttribute="bottom" secondItem="tI9-yq-Ewh" secondAttribute="bottom" constant="12" id="Wij-Ne-ehX"/>
+                                            <constraint firstAttribute="bottom" secondItem="tI9-yq-Ewh" secondAttribute="bottom" priority="750" constant="12" id="Wij-Ne-ehX"/>
                                             <constraint firstItem="tI9-yq-Ewh" firstAttribute="leading" secondItem="9B9-mU-Gkj" secondAttribute="leading" constant="12" id="dQX-hd-2LM"/>
                                         </constraints>
                                     </view>
